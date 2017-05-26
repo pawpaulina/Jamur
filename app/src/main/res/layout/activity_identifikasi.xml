@@ -8,7 +8,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="80dp"
-        android:text="Bentuk : "/>
+        android:text="Bentuk : "
+        android:textSize="16sp" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -16,14 +17,18 @@
         android:id="@+id/SpinBentuk"
         android:layout_marginTop="5dp"
         android:layout_gravity="center"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        android:longClickable="true"
+        android:touchscreenBlocksFocus="false"
+        android:focusableInTouchMode="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="30dp"
-        android:text="Warna : "/>
+        android:text="Warna : "
+        android:textSize="16sp" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -31,14 +36,16 @@
         android:id="@+id/SpinWarna"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        android:longClickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="30dp"
-        android:text="Bau : "/>
+        android:text="Bau : "
+        android:textSize="16sp" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -46,7 +53,8 @@
         android:id="@+id/SpinBau"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        android:longClickable="true" />
 
     <Button
         android:layout_width="wrap_content"

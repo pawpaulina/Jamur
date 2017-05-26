@@ -8,7 +8,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="80dp"
-        android:text="Cincin : "/>
+        android:text="Cincin : "
+        android:textSize="16sp" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -23,7 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="25dp"
-        android:text="Lendir : "/>
+        android:text="Lendir : "
+        android:textSize="16sp" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -38,7 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="25dp"
-        android:text="Habitat : "/>
+        android:text="Habitat : "
+        android:textSize="16sp" />
 
     <Spinner
         android:layout_width="wrap_content"
