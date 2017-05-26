@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private Button mulai;
+    private List<Jamur> jamurList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,5 +23,9 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent i = new Intent(getApplicationContext(), IdentifikasiActivity1.class);
         startActivity(i);
+    }
+
+    public void defineknowledgebase()
+    {
     }
 }
