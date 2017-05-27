@@ -1,12 +1,15 @@
 package com.jamjamur.jamur;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.google.gson.Gson;
 
 /**
  * Created by Paulina on 5/26/2017.
@@ -49,6 +52,20 @@ public class IdentifikasiActivity2 extends AppCompatActivity {
         String cincin = spinnerCincin.getSelectedItem().toString();
         String lendir = spinnerLendir.getSelectedItem().toString();
         String habitat = spinnerHabitat.getSelectedItem().toString();
+        Gson gson = new Gson();
+        SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        String json = mPrefs.getString("MyObject", "");
+        Jamur inputuser = gson.fromJson(json, Jamur.class);
+
+        inputuser.setCincin(cincin);
+        inputuser.setLendir(lendir);
+        inputuser.setHabitat(habitat);
+
+        json = gson.toJson(inputuser);
+        prefsEditor.putString("inputuser", json);
+        prefsEditor.commit();
+        
 
 //        Intent i = new Intent(getApplicationContext(), IdentifikasiActivity2.class);
 //        startActivity(i);

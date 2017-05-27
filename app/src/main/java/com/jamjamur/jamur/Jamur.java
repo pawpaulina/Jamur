@@ -11,16 +11,16 @@ public class Jamur {
     private int id;
     private String nama;
     private String warna;
-    private int bau;
-    private int cincin;
-    private int lendir;
+    private String bau;
+    private String cincin;
+    private String lendir;
     private int aman;
     private String habitat;
     private String deksripsi;
     private String image;
     private String bentuk;
 
-    Jamur(int id,String nama,int bau,int cincin,int lendir,String habitat,String deksripsi,String image,int aman,String warna,String bentuk)
+    Jamur(int id,String nama,String bau,String cincin,String lendir,String habitat,String deksripsi,String image,int aman,String warna,String bentuk)
     {
         setId(id);
         setNama(nama);
@@ -34,7 +34,8 @@ public class Jamur {
         setBentuk(bentuk);
         setWarna(warna);
     }
-
+    Jamur()
+    {}
     public int getId() {
         return id;
     }
@@ -92,27 +93,27 @@ public class Jamur {
         this.bentuk = bentuk;
     }
 
-    public int getBau() {
+    public String getBau() {
         return bau;
     }
 
-    public void setBau(int bau) {
+    public void setBau(String bau) {
         this.bau = bau;
     }
 
-    public int getCincin() {
+    public String getCincin() {
         return cincin;
     }
 
-    public void setCincin(int cincin) {
+    public void setCincin(String cincin) {
         this.cincin = cincin;
     }
 
-    public int getLendir() {
+    public String getLendir() {
         return lendir;
     }
 
-    public void setLendir(int lendir) {
+    public void setLendir(String lendir) {
         this.lendir = lendir;
     }
 
