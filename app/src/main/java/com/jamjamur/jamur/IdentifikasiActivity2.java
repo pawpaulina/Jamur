@@ -65,9 +65,9 @@ public class IdentifikasiActivity2 extends AppCompatActivity {
         json = gson.toJson(inputuser);
         prefsEditor.putString("inputuser", json);
         prefsEditor.commit();
-        
 
-//        Intent i = new Intent(getApplicationContext(), IdentifikasiActivity2.class);
-//        startActivity(i);
+
+        Intent i = new Intent(getApplicationContext(),Result_Acitvity.class);
+        startActivity(i);
     }
 }
