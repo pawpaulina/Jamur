@@ -1,24 +1,95 @@
 package com.jamjamur.jamur;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Result_Acitvity extends AppCompatActivity {
 
-    private Jamur j;
-    private List<Jamur>LisJamurList=new ArrayList<>();
+    private Jamur jamur=new Jamur();
+    private ArrayList<Jamur>LisJamurList=new ArrayList<>();
+    private ArrayList<Jamur>LisPenampung1=new ArrayList<>();
+    private ArrayList<Jamur>LisPenampung2=new ArrayList<>();
+    private ArrayList<Jamur>LisPenampung3=new ArrayList<>();
+    private ArrayList<Jamur>LisPenampung4=new ArrayList<>();
+    private ArrayList<Jamur>LisPenampung5=new ArrayList<>();
+    private ArrayList<Jamur>LisPenampung6=new ArrayList<>();
+
+    private ImageView imagejamur;
+    private TextView namajamur;
+    private TextView deskripsijamur;
+    private TextView bentukjamur;
+    private TextView warnajamur;
+    private TextView baujamur;
+    private TextView cincinjamur;
+    private TextView lendirjamur;
+    private TextView habitatjamur;
+    private Button btnkembali;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result__acitvity);
         initJamur();
+        imagejamur=(ImageView)findViewById(R.id.imagejamur);
+        namajamur=(TextView) findViewById(R.id.namajamur);
+        deskripsijamur=(TextView) findViewById(R.id.deskripsijamur);
+        bentukjamur=(TextView) findViewById(R.id.bentukjamur);
+        baujamur=(TextView) findViewById(R.id.baujamur);
+        cincinjamur=(TextView) findViewById(R.id.cincinjamur);
+        lendirjamur=(TextView) findViewById(R.id.lendirjamur);
+        habitatjamur=(TextView) findViewById(R.id.habitatjamur);
+        warnajamur = (TextView)findViewById(R.id.warnajamur);
+        btnkembali = (Button)findViewById(R.id.btnKembali);
+
+        Intent intent=getIntent();
+        Bundle extras = intent.getExtras();
+        String bentuk= extras.getString("bentuk");
+        String warna= extras.getString("warna");
+        String bau= extras.getString("bau");
+        String cincin= extras.getString("cincin");
+        String lendir= extras.getString("lendir");
+        String habitat= extras.getString("habitat");
+
+
+        jamur.setBentuk(bentuk);
+        jamur.setWarna(warna);
+        jamur.setBau(bau);
+        jamur.setCincin(cincin);
+        jamur.setLendir(lendir);
+        jamur.setHabitat(habitat);
+
+        InfrenceEngine();
+
+        btnkembali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+
+
+
     }
 
     private void initJamur()
     {
+        Jamur j;
+
         j = new Jamur(1,"Jamur tiram putih (Pleoratus ostreatus)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","image",0,"putih","tudung serong");
         LisJamurList.add(j);
         j = new Jamur(2,"Jamur tiram merah (Pleoratus ostreatus)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","image",0,"merah semu","tudung serong");
@@ -75,55 +146,71 @@ public class Result_Acitvity extends AppCompatActivity {
         LisJamurList.add(j);
         j = new Jamur(28,"Jamur boletus","tidak berbau","tidak ada","tidak","tanah","des","image",0,"coklat","tudung cembung");
         LisJamurList.add(j);
+        j = new Jamur(29,"Jamur kancing (Agaricus bisporus)","tidak berbau","ada","tidak","jerami","des","image",0,"putih","tudung cembung");
+        LisJamurList.add(j);
     }
-    private Jamur InfrenceEngine()
+    private void InfrenceEngine()
     {
         for (int i=0;i<LisJamurList.size();i++)
         {
-            if(!j.getWarna().equalsIgnoreCase(LisJamurList.get(i).getWarna()));
+            if(LisJamurList.get(i).getWarna().toString().equalsIgnoreCase(jamur.getWarna()))
             {
-                LisJamurList.remove(i);
+                LisPenampung1.add(LisJamurList.get(i));
             }
         }
-        for (int i=0;i<LisJamurList.size();i++)
+        for (int i=0;i<LisPenampung1.size();i++)
         {
-            if(!j.getBentuk().equalsIgnoreCase(LisJamurList.get(i).getBentuk()));
+            if(jamur.getBentuk().equalsIgnoreCase(LisPenampung1.get(i).getBentuk()))
             {
-                LisJamurList.remove(i);
+                LisPenampung2.add(LisPenampung1.get(i));
             }
         }
-        for (int i=0;i<LisJamurList.size();i++)
+        for (int i=0;i<LisPenampung2.size();i++)
         {
-            if(!j.getHabitat().equalsIgnoreCase(LisJamurList.get(i).getHabitat()));
+            if(jamur.getHabitat().equalsIgnoreCase(LisPenampung2.get(i).getHabitat()))
             {
-                LisJamurList.remove(i);
+                LisPenampung3.add(LisPenampung2.get(i));
             }
         }
-        for (int i=0;i<LisJamurList.size();i++)
+        for (int i=0;i<LisPenampung3.size();i++)
         {
-            if(j.getBau()!=LisJamurList.get(i).getBau());
+            if(jamur.getBau().equalsIgnoreCase(LisPenampung3.get(i).getBau()))
             {
-                LisJamurList.remove(i);
+                LisPenampung4.add(LisPenampung3.get(i));
             }
         }
-        for (int i=0;i<LisJamurList.size();i++)
+        for (int i=0;i< LisPenampung4.size();i++)
         {
-            if(j.getCincin()!=LisJamurList.get(i).getCincin());
+            if(jamur.getCincin().equalsIgnoreCase(LisPenampung4.get(i).getCincin()))
             {
-                LisJamurList.remove(i);
+                LisPenampung5.add(LisPenampung4.get(i));
             }
         }
-        for (int i=0;i<LisJamurList.size();i++)
+        for (int i=0;i<LisPenampung5.size();i++)
         {
-            if(j.getLendir()!=LisJamurList.get(i).getLendir());
+            if(jamur.getLendir().equalsIgnoreCase(LisPenampung5.get(i).getLendir()))
             {
-                LisJamurList.remove(i);
+                LisPenampung6.add(LisPenampung5.get(i));
             }
         }
-        Jamur result;
-        result=LisJamurList.get(0);
-        return result;
 
+
+
+                if(LisPenampung6.size()==0) {
+                    Toast.makeText(Result_Acitvity.this,"Jamur tidak ditemukan ", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(Result_Acitvity.this, LisPenampung6.get(0).getNama(), Toast.LENGTH_LONG).show();
+                }
+
+        namajamur.setText(LisPenampung6.get(0).getNama());
+        deskripsijamur.setText(LisPenampung6.get(0).getDeksripsi());
+        bentukjamur.setText(LisPenampung6.get(0).getBentuk());
+        baujamur.setText(LisPenampung6.get(0).getBau());
+        cincinjamur.setText(LisPenampung6.get(0).getCincin());
+        lendirjamur.setText(LisPenampung6.get(0).getLendir());
+        habitatjamur.setText(LisPenampung6.get(0).getHabitat());
+        warnajamur.setText(LisPenampung6.get(0).getWarna());
 
     }
 

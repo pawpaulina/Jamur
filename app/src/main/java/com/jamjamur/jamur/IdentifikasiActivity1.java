@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -22,6 +23,8 @@ public class IdentifikasiActivity1 extends AppCompatActivity {
     private Spinner spinnerBentuk;
     private Spinner spinnerWarna;
     private Spinner spinnerBau;
+
+
 
     private Button btnLanjut;
     @Override
@@ -52,17 +55,12 @@ public class IdentifikasiActivity1 extends AppCompatActivity {
         String bentuk = spinnerBentuk.getSelectedItem().toString();
         String warna = spinnerWarna.getSelectedItem().toString();
         String bau = spinnerBau.getSelectedItem().toString();
-        Jamur j = new Jamur();
-        j.setBentuk(bentuk);
-        j.setWarna(warna);
-        j.setBau(bau);
-        SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(j);
-        prefsEditor.putString("inputuser", json);
-        prefsEditor.commit();
+
+
         Intent i = new Intent(getApplicationContext(), IdentifikasiActivity2.class);
+        i.putExtra("bentuk", bentuk);
+        i.putExtra("warna", warna);
+        i.putExtra("bau", bau);
         startActivity(i);
     }
 }
