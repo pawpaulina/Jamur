@@ -2,6 +2,7 @@ package com.jamjamur.jamur;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -90,21 +91,21 @@ public class Result_Acitvity extends AppCompatActivity {
     {
         Jamur j;
 
-        j = new Jamur(1,"Jamur tiram putih (Pleoratus ostreatus)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","image",0,"putih","tudung serong");
+        j = new Jamur(1,"Jamur tiram putih (Pleoratus ostreatus)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","jamur_tiram_putih",0,"putih","tudung serong");
         LisJamurList.add(j);
-        j = new Jamur(2,"Jamur tiram merah (Pleoratus ostreatus)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","image",0,"merah semu","tudung serong");
+        j = new Jamur(2,"Jamur tiram merah (Pleoratus ostreatus)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","jamur_tiram_pink",0,"merah semu","tudung serong");
         LisJamurList.add(j);
-        j = new Jamur(3,"Jamur tiram kuning (Pleoratus ostreatus)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","image",0,"kuning semu","tudung serong");
+        j = new Jamur(3,"Jamur tiram kuning (Pleoratus ostreatus)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","jamur_tiram_kuning",0,"kuning semu","tudung serong");
         LisJamurList.add(j);
-        j = new Jamur(4,"Jamur merang putih (volvoriella volvaceae)","Tidak berbau","Tidak ada","Tidak","jerami","des","image",0,"putih","bulat");
+        j = new Jamur(4,"Jamur merang putih (volvoriella volvaceae)","Tidak berbau","Tidak ada","Tidak","jerami","des","jamur_merang_putih",0,"putih","bulat");
         LisJamurList.add(j);
-        j = new Jamur(5,"Jamur merang coklat (volvoriella volvaceae)","Tidak berbau","Tidak ada","Tidak","jerami","des","image",0,"coklat","bulat");
+        j = new Jamur(5,"Jamur merang coklat (volvoriella volvaceae)","Tidak berbau","Tidak ada","Tidak","jerami","des","jamur_merang_coklat",0,"coklat","bulat");
         LisJamurList.add(j);
-        j = new Jamur(6,"Jamur Shiitake (Lentinula edodes)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","image",0,"coklat","tudung cembung");
+        j = new Jamur(6,"Jamur Shiitake (Lentinula edodes)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","jamur_shitake",0,"coklat","tudung cembung");
         LisJamurList.add(j);
-        j = new Jamur(7,"Jamur Kuping coklat(Auricularia auricula)","Tidak berbau","Tidak ada","Ya","kayu mati","des","image",0,"coklat","cuping");
+        j = new Jamur(7,"Jamur Kuping coklat(Auricularia auricula)","Tidak berbau","Tidak ada","Ya","kayu mati","des","jamur_kuping_coklat",0,"coklat","cuping");
         LisJamurList.add(j);
-        j = new Jamur(8,"Jamur Kuping hitam(Auricularia auricula)","Tidak berbau","Tidak ada","Ya","kayu mati","des","image",0,"hitam","cuping");
+        j = new Jamur(8,"Jamur Kuping hitam(Auricularia auricula)","Tidak berbau","Tidak ada","Ya","kayu mati","des","jamur_kuping_hitam",0,"hitam","cuping");
         LisJamurList.add(j);
         j = new Jamur(9,"Jamur Maitake (Grifola frondosa)","Tidak berbau","Tidak ada","Tidak","kayu mati","des","image",0,"hitam","cuping");
         LisJamurList.add(j);
@@ -200,17 +201,22 @@ public class Result_Acitvity extends AppCompatActivity {
                     Toast.makeText(Result_Acitvity.this,"Jamur tidak ditemukan ", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Toast.makeText(Result_Acitvity.this, LisPenampung6.get(0).getNama(), Toast.LENGTH_LONG).show();
+                    String uri = "@drawable/"+LisPenampung6.get(0).getImage();  // where myresource (without the extension) is the file
+                    int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+                    imagejamur= (ImageView)findViewById(R.id.imagejamur);
+                    Drawable res = getResources().getDrawable(imageResource);
+                    imagejamur.setImageDrawable(res);
+                    namajamur.setText(LisPenampung6.get(0).getNama());
+                    deskripsijamur.setText(LisPenampung6.get(0).getDeksripsi());
+                    bentukjamur.setText(LisPenampung6.get(0).getBentuk());
+                    baujamur.setText(LisPenampung6.get(0).getBau());
+                    cincinjamur.setText(LisPenampung6.get(0).getCincin());
+                    lendirjamur.setText(LisPenampung6.get(0).getLendir());
+                    habitatjamur.setText(LisPenampung6.get(0).getHabitat());
+                    warnajamur.setText(LisPenampung6.get(0).getWarna());
                 }
 
-        namajamur.setText(LisPenampung6.get(0).getNama());
-        deskripsijamur.setText(LisPenampung6.get(0).getDeksripsi());
-        bentukjamur.setText(LisPenampung6.get(0).getBentuk());
-        baujamur.setText(LisPenampung6.get(0).getBau());
-        cincinjamur.setText(LisPenampung6.get(0).getCincin());
-        lendirjamur.setText(LisPenampung6.get(0).getLendir());
-        habitatjamur.setText(LisPenampung6.get(0).getHabitat());
-        warnajamur.setText(LisPenampung6.get(0).getWarna());
+
 
     }
 
