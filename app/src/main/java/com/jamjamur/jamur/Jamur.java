@@ -10,15 +10,17 @@ public class Jamur {
 
     private int id;
     private String nama;
-    private boolean bau;
-    private boolean cincin;
-    private boolean lendir;
+    private String warna;
+    private int bau;
+    private int cincin;
+    private int lendir;
+    private int aman;
     private String habitat;
     private String deksripsi;
     private String image;
-    private boolean aman;
+    private String bentuk;
 
-    Jamur(int id,String nama,boolean bau,boolean cincin,boolean lendir,String habitat,String deksripsi,String image,boolean aman)
+    Jamur(int id,String nama,int bau,int cincin,int lendir,String habitat,String deksripsi,String image,int aman,String warna,String bentuk)
     {
         setId(id);
         setNama(nama);
@@ -29,6 +31,8 @@ public class Jamur {
         setDeksripsi(deksripsi);
         setImage(image);
         setAman(aman);
+        setBentuk(bentuk);
+        setWarna(warna);
     }
 
     public int getId() {
@@ -47,29 +51,6 @@ public class Jamur {
         this.nama = nama;
     }
 
-    public boolean isBau() {
-        return bau;
-    }
-
-    public void setBau(boolean bau) {
-        this.bau = bau;
-    }
-
-    public boolean isCincin() {
-        return cincin;
-    }
-
-    public void setCincin(boolean cincin) {
-        this.cincin = cincin;
-    }
-
-    public boolean isLendir() {
-        return lendir;
-    }
-
-    public void setLendir(boolean lendir) {
-        this.lendir = lendir;
-    }
 
     public String getHabitat() {
         return habitat;
@@ -95,11 +76,51 @@ public class Jamur {
         this.image = image;
     }
 
-    public boolean isAman() {
+    public String getWarna() {
+        return warna;
+    }
+
+    public void setWarna(String warna) {
+        this.warna = warna;
+    }
+
+    public String getBentuk() {
+        return bentuk;
+    }
+
+    public void setBentuk(String bentuk) {
+        this.bentuk = bentuk;
+    }
+
+    public int getBau() {
+        return bau;
+    }
+
+    public void setBau(int bau) {
+        this.bau = bau;
+    }
+
+    public int getCincin() {
+        return cincin;
+    }
+
+    public void setCincin(int cincin) {
+        this.cincin = cincin;
+    }
+
+    public int getLendir() {
+        return lendir;
+    }
+
+    public void setLendir(int lendir) {
+        this.lendir = lendir;
+    }
+
+    public int getAman() {
         return aman;
     }
 
-    public void setAman(boolean aman) {
+    public void setAman(int aman) {
         this.aman = aman;
     }
 }
