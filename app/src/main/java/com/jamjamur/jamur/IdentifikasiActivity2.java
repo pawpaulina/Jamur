@@ -1,6 +1,5 @@
 package com.jamjamur.jamur;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +38,7 @@ public class IdentifikasiActivity2 extends AppCompatActivity {
         ArrayAdapter<String> adapterLendir = new ArrayAdapter<String>(this, R.layout.spinner_layout, arrayLendir);
         spinnerLendir.setAdapter(adapterLendir);
 
-        this.arrayHabitat = new String[]{"Jerami", "Kayu Mati"};
+        this.arrayHabitat = new String[]{"Jerami", "Kayu Mati", "Tanah","Padang rumput","Dasar pohon","Hutan pohon kayu"};
         spinnerHabitat = (Spinner) findViewById(R.id.SpinHabitat);
         ArrayAdapter<String> adapterHabitat = new ArrayAdapter<String>(this, R.layout.spinner_layout, arrayHabitat);
         spinnerHabitat.setAdapter(adapterHabitat);

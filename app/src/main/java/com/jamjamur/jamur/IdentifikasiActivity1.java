@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -31,12 +29,12 @@ public class IdentifikasiActivity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identifikasi);
 
-        this.arrayBentuk = new String[]{"Bulat", "Payung", "Pipih", "Tiram", "Tudung"};
+        this.arrayBentuk = new String[]{"Bulat", "Tudung serong", "Tudung datar", "Cuping", "Tudung cembung","Tudung kerucut","Rumbai","Tudung oval","Tudung tak berbentuk"};
         spinnerBentuk = (Spinner) findViewById(R.id.SpinBentuk);
         ArrayAdapter<String> adapterBentuk = new ArrayAdapter<String>(this, R.layout.spinner_layout, arrayBentuk);
         spinnerBentuk.setAdapter(adapterBentuk);
 
-        this.arrayWarna = new String[]{"Biru", "Coklat", "Hitam", "Krem", "Kuning", "Oranye", "Merah", "Merah Muda", "Putih", "Violet"};
+        this.arrayWarna = new String[]{"Biru", "Coklat", "Coklat semu", "Coklat bintik", "Hitam", "Kuning", "Kuning semu", "Kuning bintik","Oranye", "Oranye semu", "Merah", "Merah Semu","Merah bintik", "Putih", "Putih semu"};
         spinnerWarna = (Spinner) findViewById(R.id.SpinWarna);
         ArrayAdapter<String> adapterWarna = new ArrayAdapter<String>(this, R.layout.spinner_layout, arrayWarna);
         spinnerWarna.setAdapter(adapterWarna);
