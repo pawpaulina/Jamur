@@ -21,7 +21,7 @@ public class SplashScreenActivity extends AwesomeSplash {
         configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);  //or Flags.REVEAL_LEFT
         configSplash.setRevealFlagY(Flags.REVEAL_TOP);//or Flags.REVEAL_TOP
 
-        //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
+        //Choose LOGO OR PATH; if you don't provide String value for path it's logoawal by default
 
         //Customize Logo
         configSplash.setLogoSplash(R.drawable.logo); //or any other drawable
